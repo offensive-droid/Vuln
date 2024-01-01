@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Level 5</h1>
-    <form method="POST" action="basics_5_action.php">
+    <form method="POST" action="basics_6_action.php">
         <input id="nameinput" name="name" type="text" placeholder="">
         <input type="submit">
     </form>
