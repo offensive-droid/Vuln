@@ -1,7 +1,14 @@
-FROM php:8.0-apache as base
+# Use an official PHP runtime as a base image
+FROM php:7.4-apache
 
-COPY ./src /var/www/html
+# Set the working directory in the container
+WORKDIR /var/www/html
 
-CMD ["php", "-S" , "0.0.0.0:80"]
+# Copy the PHP files from your local machine to the container
+COPY . /var/www/html
 
-USER 'www-data'
+# Expose port 80 (assuming your PHP application runs on this port)
+EXPOSE 80
+
+# Start PHP built-in server when the container launches
+CMD ["php", "-S", "0.0.0.0:80"]
