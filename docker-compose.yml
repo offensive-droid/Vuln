@@ -10,7 +10,7 @@ services:
     ports:
       - 9000:80
 
-  mysql_db:
+mysql_db:
     image: mysql:latest
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  phpmyadmin:
+phpmyadmin:
     image: phpmyadmin
     restart: always
     ports:
