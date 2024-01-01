@@ -14,7 +14,7 @@ EXPOSE 80
 # Start PHP built-in server when the container launches
 CMD ["php", "-S", "0.0.0.0:80"]
 
-RUN apt-get update -y && apt-get install -y libmariadb-dev
+RUN apt-get update -y && apt-get install -y libmariadb-dev & apt-get install -y mysqld
 
 RUN docker-php-ext-install mysqli
 
