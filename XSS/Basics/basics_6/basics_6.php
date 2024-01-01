@@ -8,7 +8,7 @@
     <script></script>
 </head>
 <body>
-    <h1>Level 5</h1>
+    <h1>Level 6</h1>
     <form method="POST" action="basics_6_action.php">
         <input id="nameinput" name="name" type="text" placeholder="">
         <input type="submit">
