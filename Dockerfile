@@ -20,9 +20,4 @@ RUN docker-php-ext-install mysqli
 # Start PHP built-in server when the container launches
 CMD ["php", "-S", "0.0.0.0:80"]
 
-# Define environment variables for MySQL
-ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_DATABASE=vulnapp
-
-# Copy SQL initialization script into the container
-COPY init.sql /docker-entrypoint-initdb.d/
+CMD docker-compose up
