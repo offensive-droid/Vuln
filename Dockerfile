@@ -7,9 +7,6 @@ WORKDIR /var/www/html
 # Copy the PHP files from your local machine to the container
 COPY . /var/www/html
 
-# Expose port 80 (assuming your PHP application runs on this port)
-EXPOSE 80
-
 # Install MySQL client in the container
 RUN apt-get update && apt-get install -y \
     default-mysql-client
