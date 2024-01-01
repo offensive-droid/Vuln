@@ -1,4 +1,4 @@
-REATE DATABASE vulnapp;
+CREATE DATABASE vulnapp;
 USE vulnapp;
 
 CREATE TABLE users (
