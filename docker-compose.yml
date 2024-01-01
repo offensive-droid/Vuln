@@ -1,27 +1,38 @@
-version: '3.9'
-
+version: '3'
 services:
-  php-env:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./src:/var/www/html
-    ports:
-      - 9000:80
-
-mysql_db:
+  db:
     image: mysql:latest
-    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vulnapp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-phpmyadmin:
-    image: phpmyadmin
-    restart: always
+      - "./db:/docker-entrypoint-initdb.d"
+    networks:
+      - lamp-docker
+  www:
+    depends_on:
+      - db
+    image: php:8.1.1-apache
+    volumes:
+      - "./:/var/www/html"
     ports:
-      - 9001:80
+      - 80:80
+      - 443:443
+    networks:
+      - lamp-docker
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
     environment:
-      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_PORT=3306
+    networks:
+      - lamp-docker
+networks:
+  lamp-docker:
+    driver: bridge
