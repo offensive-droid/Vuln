@@ -1,5 +1,5 @@
 <?php
-include '..\..\db.php';
+include '/var/www/html/db.php';
 
 // Check if 'r' parameter is set and assign its value to $var
 $email = isset($_POST['email']) ? $_POST['email'] : ''; // Assuming 'r' is the parameter containing the email
