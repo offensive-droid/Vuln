@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Expose port 80 (assuming your PHP application runs on this port)
-EXPOSE 8000
+EXPOSE 80
 
 # Start PHP built-in server when the container launches
 CMD ["php", "-S", "0.0.0.0:80"]
