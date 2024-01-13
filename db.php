@@ -1,8 +1,12 @@
 <?php
-session_start();
-$mysqli = new MySQLi("mysql_db","root","root","vulnapp");
-if($mysqli -> connect_errno){
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();
-}?>
 
+$servername = "db";
+$username = "root";
+$password = "root";
+$dbname = "vulnapp";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
