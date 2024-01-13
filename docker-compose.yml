@@ -16,7 +16,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: vulnweb
+      MYSQL_DATABASE: vulnapp
       MYSQL_USER: root
       MYSQL_PASSWORD: root
     volumes:
