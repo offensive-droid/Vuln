@@ -17,4 +17,3 @@ RUN docker-php-ext-install mysqli
 # Start PHP built-in server when the container launches
 CMD ["php", "-S", "0.0.0.0:80"]
 
-CMD docker-compose up
