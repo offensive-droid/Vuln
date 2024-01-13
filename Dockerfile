@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client
 
 # Install mysqli extension for PHP
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Start PHP built-in server when the container launches
 CMD ["php", "-S", "0.0.0.0:80"]
