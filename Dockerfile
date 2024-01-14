@@ -8,15 +8,15 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Install MySQL client in the container
-#RUN apt-get update && apt-get install -y \
-#    default-mysql-client
+RUN apt-get update && apt-get install -y \
+    default-mysql-client
 
 # Install mysqli extension for PHP
-#RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev && \
+#RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+#RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev && \
     docker-php-ext-configure gd --with-jpeg=/usr/include/ && \
     docker-php-ext-install gd
 
